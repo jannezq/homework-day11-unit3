@@ -10,7 +10,7 @@ const MainSearch = () => {
   // const [jobs, setJobs] = useState([]);
   const jobs = useSelector((state) => state.jobs.jobsData);
 
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (e) => {

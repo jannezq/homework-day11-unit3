@@ -33,7 +33,7 @@ const Job = ({ data }) => {
             color="gold"
             size={16}
             className="mr-2 my-auto"
-            onClick={() => dispatch(addToFavourite(data))}
+            onClick={() => dispatch(addToFavourite(data.company_name))}
           />
         )}
       </Col>
