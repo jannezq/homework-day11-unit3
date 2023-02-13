@@ -8,7 +8,7 @@ import { fetchJobsDataAsync } from "../redux/actions";
 const MainSearch = () => {
   const [query, setQuery] = useState("");
   // const [jobs, setJobs] = useState([]);
-  const jobs = useSelector((state) => state.jobs.jobData);
+  const jobs = useSelector((state) => state.jobs.jobsData);
 
   const dispatch = useDispatch;
   const navigate = useNavigate();

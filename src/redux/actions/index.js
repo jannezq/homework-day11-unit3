@@ -2,10 +2,10 @@ export const ADD_TO_FAVOURITE = "ADD_TO_FAVOURITE";
 export const REMOVE_FROM_FAVOURITE = "REMOVE_FROM_FAVOURITE";
 export const GET_JOBS_DATA = "GET_JOBS_DATA";
 
-export const addToFavourite = (company) => {
+export const addToFavourite = (data) => {
   return {
     type: ADD_TO_FAVOURITE,
-    payload: company,
+    payload: data,
   };
 };
 

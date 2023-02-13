@@ -4,7 +4,7 @@ const initialState = {
   jobsData: [],
 };
 
-const getFetchJobsReducer = (state = initialState, action) => {
+const getJobSearchReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_JOBS_DATA:
       return {
@@ -16,4 +16,4 @@ const getFetchJobsReducer = (state = initialState, action) => {
   }
 };
 
-export default getFetchJobsReducer;
+export default getJobSearchReducer;
