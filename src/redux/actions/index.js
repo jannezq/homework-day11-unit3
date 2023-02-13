@@ -29,6 +29,7 @@ export const fetchJobsDataAsync = (query) => {
           type: GET_JOBS_DATA,
           payload: data,
         });
+        console.log("Loaded complete");
       } else {
         alert("Error fetching results");
       }
