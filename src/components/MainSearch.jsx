@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Container,
   Row,
@@ -11,7 +11,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Job from "./Job";
-import { fetchJobsDataAsync } from "../redux/actions";
+import { fetchJobsDataAsync, GET_JOBS_DATA } from "../redux/actions";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
@@ -52,6 +52,14 @@ const MainSearch = () => {
     //   console.log(error);
     // }
   };
+
+  useEffect(() => {
+    dispatch({
+      type: GET_JOBS_DATA,
+      payload: [],
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container>
