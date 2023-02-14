@@ -7,7 +7,7 @@ import { addToFavourite, removeFromFavourite } from "../redux/actions";
 const Job = ({ data }) => {
   const favourites = useSelector((state) => state.favourite.content);
   const dispatch = useDispatch();
-  const isFav = favourites.includes(data.company_name);
+  const isFavSelected = favourites.includes(data.company_name);
 
   return (
     <Row
@@ -21,7 +21,7 @@ const Job = ({ data }) => {
         <a href={data.url} target="_blank" rel="noreferrer">
           {data.title}
         </a>
-        {isFav ? (
+        {isFavSelected ? (
           <StarFill
             color="gold"
             size={16}

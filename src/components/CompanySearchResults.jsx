@@ -9,12 +9,12 @@ const CompanySearchResults = () => {
   // const [jobs, setJobs] = useState([]);
   const params = useParams();
   const dispatch = useDispatch;
-  const jobs = useSelector((state) => state.jobs.jobsData);
+  const jobs = useSelector((state) => state.jobs.jobsData.company_name);
 
   // const baseEndpoint = "https://strive-jobs-api.herokuapp.com/jobs?company=";
 
   useEffect(() => {
-    dispatch(fetchJobsDataAsync(params.jobs.jobsData));
+    dispatch(fetchJobsDataAsync(params.jobs.jobsData.company_name));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
