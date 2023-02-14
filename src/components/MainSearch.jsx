@@ -89,8 +89,10 @@ const MainSearch = () => {
           className="mx-auto mb-5 d-flex justify-content-center align-items-center"
         >
           {" "}
-          {applicationLoading && (
-            <Spinner className="mr-2" animation="border" variant="success" />
+          {applicationError && (
+            <Alert variant="danger" className="mx-auto">
+              Something very bad happened with the books 😨
+            </Alert>
           )}
         </Col>
       </Row>

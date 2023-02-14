@@ -56,3 +56,5 @@ export const fetchJobsDataAsync = (query) => {
     }
   };
 };
+
+

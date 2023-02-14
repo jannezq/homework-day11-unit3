@@ -8,16 +8,22 @@ const Job = ({ data }) => {
   const favourites = useSelector((state) => state.favourite.content);
   const dispatch = useDispatch();
   const isFav = favourites.includes(data.company_name);
-  // const applicationLoading = useSelector((state) => state.jobs.isLoading);
+  const applicationLoading = useSelector((state) => state.jobs.isLoading);
   const applicationError = useSelector((state) => state.jobs.isError);
 
   return (
     <>
-      {applicationError && (
-        <Alert variant="danger" className="mx-auto">
-          Something very bad happened with the books 😨
-        </Alert>
-      )}
+      <Row>
+        {" "}
+        {applicationLoading && (
+          <Spinner className="mr-2" animation="border" variant="success" />
+        )}
+        {applicationError && (
+          <Alert variant="danger" className="mx-auto">
+            Something very bad happened with the books 😨
+          </Alert>
+        )}
+      </Row>
       <Row
         className="mx-0 mt-3 p-3"
         style={{ border: "1px solid #00000033", borderRadius: 4 }}

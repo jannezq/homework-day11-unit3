@@ -20,7 +20,10 @@ const Favourites = () => {
   return (
     <Container>
       <Row>
-        <Col xs={10} className="mx-auto my-3">
+        <Col
+          xs={10}
+          className="mx-auto my-3 d-flex justify-content-between align-items-center"
+        >
           <h1>Favourites</h1>
           <Button onClick={() => navigate("/")}>Home</Button>
         </Col>
