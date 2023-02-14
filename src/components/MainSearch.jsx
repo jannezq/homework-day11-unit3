@@ -61,7 +61,7 @@ const MainSearch = () => {
           className="mx-auto my-3 d-flex justify-content-between align-items-center"
         >
           <h1>Remote Jobs Search</h1>
-          <Button className="mr-auto" onClick={() => navigate("/favourites")}>
+          <Button className="" onClick={() => navigate("/favourites")}>
             Favourites
           </Button>
         </Col>
