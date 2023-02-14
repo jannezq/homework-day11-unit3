@@ -1,7 +1,9 @@
-import { GET_JOBS_DATA } from "../actions";
+import { GET_JOBS_DATA, GET_JOBS_ERROR, GET_JOBS_LOADING } from "../actions";
 
 const initialState = {
   jobsData: [],
+  isLoading: true,
+  isError: false,
 };
 
 const getJobSearchReducer = (state = initialState, action) => {
@@ -10,6 +12,19 @@ const getJobSearchReducer = (state = initialState, action) => {
       return {
         jobsData: action.payload,
       };
+
+    case GET_JOBS_LOADING:
+      return {
+        ...state,
+        isLoading: action.payload,
+      };
+
+    case GET_JOBS_ERROR:
+      return {
+        ...state,
+        isError: action.payload,
+      };
+
     default:
       return state;
   }

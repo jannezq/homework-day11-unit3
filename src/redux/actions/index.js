@@ -1,6 +1,8 @@
 export const ADD_TO_FAVOURITE = "ADD_TO_FAVOURITE";
 export const REMOVE_FROM_FAVOURITE = "REMOVE_FROM_FAVOURITE";
 export const GET_JOBS_DATA = "GET_JOBS_DATA";
+export const GET_JOBS_LOADING = "GET_JOBS_LOADING";
+export const GET_JOBS_ERROR = "GET_JOBS_ERROR";
 
 export const addToFavourite = (data) => {
   return {
@@ -18,7 +20,6 @@ export const removeFromFavourite = (i) => {
 
 export const fetchJobsDataAsync = (query) => {
   return async (dispatch) => {
-    console.log("...loading to fetch API for Jobs");
     try {
       const baseEndpoint =
         "https://strive-benchmark.herokuapp.com/api/jobs?search=";
@@ -29,12 +30,29 @@ export const fetchJobsDataAsync = (query) => {
           type: GET_JOBS_DATA,
           payload: data,
         });
-        console.log("Loaded complete");
+        dispatch({
+          type: GET_JOBS_LOADING,
+          payload: false,
+        });
       } else {
-        alert("Error fetching results");
+        dispatch({
+          type: GET_JOBS_LOADING,
+          payload: false,
+        });
+        dispatch({
+          type: GET_JOBS_ERROR,
+          payload: true,
+        });
       }
     } catch (error) {
-      console.log(error);
+      dispatch({
+        type: GET_JOBS_LOADING,
+        payload: false,
+      });
+      dispatch({
+        type: GET_JOBS_ERROR,
+        payload: true,
+      });
     }
   };
 };

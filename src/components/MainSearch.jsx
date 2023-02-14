@@ -1,5 +1,13 @@
 import { useState } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Form,
+  Button,
+  Alert,
+  Spinner,
+} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Job from "./Job";
@@ -12,6 +20,9 @@ const MainSearch = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const applicationLoading = useSelector((state) => state.jobs.isLoading);
+  const applicationError = useSelector((state) => state.jobs.isError);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -45,12 +56,17 @@ const MainSearch = () => {
   return (
     <Container>
       <Row>
-        <Col xs={10} className="mx-auto my-3">
+        <Col
+          xs={10}
+          className="mx-auto my-3 d-flex justify-content-between align-items-center"
+        >
           <h1>Remote Jobs Search</h1>
           <Button className="mr-auto" onClick={() => navigate("/favourites")}>
             Favourites
           </Button>
         </Col>
+      </Row>
+      <Row>
         <Col xs={10} className="mx-auto">
           <Form onSubmit={handleSubmit}>
             <Form.Control
@@ -65,6 +81,17 @@ const MainSearch = () => {
           {jobs.map((jobData) => (
             <Job key={jobData._id} data={jobData} />
           ))}
+        </Col>
+      </Row>
+      <Row>
+        <Col
+          xs={10}
+          className="mx-auto mb-5 d-flex justify-content-center align-items-center"
+        >
+          {" "}
+          {applicationLoading && (
+            <Spinner className="mr-2" animation="border" variant="success" />
+          )}
         </Col>
       </Row>
     </Container>
